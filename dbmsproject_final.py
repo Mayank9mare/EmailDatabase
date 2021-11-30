@@ -18,12 +18,28 @@ def login():
                 ll.append(i)
             for widgets in frame2.winfo_children():
                 widgets.destroy()
+
+            mylistbox = Listbox(frame2,height=frame2.winfo_screenheight(),width=frame2.winfo_screenwidth())
+            mylistbox.pack();
+            index = 1;
             if (len(ll) == 0):
-                Label(frame2,text="nothing to show up here").pack();
+                mylistbox.insert(index,"  nothing to show up here");
             else:
                 for i in ll:
-                    val = f"{i[-1]}. from:{i[0]}\nrecieved at:{i[2]}\nsubject:{i[3]}\n{i[4]}"
-                    Label(frame2,text=val).pack();
+                    val1 = f"{i[-1]}. from:{i[0]}"
+                    val2 = f"  recieved at:{i[2]}"
+                    val3 = f"  subject:{i[3]}\n"
+                    val4 = f"  content: {i[4]}"
+                    mylistbox.insert(index,val1)
+                    index += 1
+                    mylistbox.insert(index,val2)
+                    index += 1
+                    mylistbox.insert(index,val3)
+                    index += 1
+                    mylistbox.insert(index,val4)
+                    index += 1
+                    mylistbox.insert(index, " ")
+                    index += 1
 
         def showsent():
             global mycursor;
@@ -33,12 +49,27 @@ def login():
                 ll.append(i)
             for widgets in frame2.winfo_children():
                 widgets.destroy()
+            mylistbox = Listbox(frame2,height=frame2.winfo_screenheight(),width=frame2.winfo_screenwidth())
+            mylistbox.pack();
+            index = 1;
             if (len(ll) == 0):
-                Label(frame2,text="nothing to show up here").pack();
+                mylistbox.insert(index,"  nothing to show up here");
             else:
                 for i in ll:
-                    val = f"to:{i[1]}\nsend at:{i[2]}\nsubject:{i[3]}\n{i[4]}"
-                    Label(frame2,text=val).pack();
+                    val1 = f"  to:{i[1]}"
+                    val2 = f"  send at:{i[2]}"
+                    val3 = f"  subject:{i[3]}\n"
+                    val4 = f"  content: {i[4]}"
+                    mylistbox.insert(index,val1)
+                    index += 1
+                    mylistbox.insert(index,val2)
+                    index += 1
+                    mylistbox.insert(index,val3)
+                    index += 1
+                    mylistbox.insert(index,val4)
+                    index += 1
+                    mylistbox.insert(index, " ")
+                    index += 1
 
         def showtrash():
             global mycursor;
@@ -48,12 +79,28 @@ def login():
                 ll.append(i)
             for widgets in frame2.winfo_children():
                 widgets.destroy()
+            
+            mylistbox = Listbox(frame2,height=frame2.winfo_screenheight(),width=frame2.winfo_screenwidth())
+            mylistbox.pack();
+            index = 1;
             if (len(ll) == 0):
-                Label(frame2,text="nothing to show up here").pack();
+                mylistbox.insert(index,"  nothing to show up here");
             else:
                 for i in ll:
-                    val = f"from:{i[0]}\nreceived at:{i[2]}\nsubject:{i[3]}\n{i[4]}"
-                    Label(frame2,text=val).pack();
+                    val1 = f"  from:{i[0]}"
+                    val2 = f"  recieved at:{i[2]}"
+                    val3 = f"  subject:{i[3]}\n"
+                    val4 = f"  content: {i[4]}"
+                    mylistbox.insert(index,val1)
+                    index += 1
+                    mylistbox.insert(index,val2)
+                    index += 1
+                    mylistbox.insert(index,val3)
+                    index += 1
+                    mylistbox.insert(index,val4)
+                    index += 1
+                    mylistbox.insert(index, " ")
+                    index += 1
         def showallmail():
             global mycursor;
             mycursor.execute(f"select * from allmails where to_eid = '{eml}'");
@@ -62,14 +109,29 @@ def login():
                 ll.append(i)
             for widgets in frame2.winfo_children():
                 widgets.destroy()
+
+            mylistbox = Listbox(frame2,height=frame2.winfo_screenheight(),width=frame2.winfo_screenwidth())
+            mylistbox.pack();
+            index = 1;
             if (len(ll) == 0):
-                Label(frame2,text="nothing to show up here").pack();
+                mylistbox.insert(index,"  nothing to show up here");
             else:
                 for i in ll:
-                    val = f"from:{i[0]}\nrecieved at:{i[2]}\nsubject:{i[3]}\n{i[4]}"
-                    Label(frame2,text=val).pack();
+                    val1 = f"  from:{i[0]}"
+                    val2 = f"  recieved at:{i[2]}"
+                    val3 = f"  subject:{i[3]}\n"
+                    val4 = f"  content: {i[4]}"
+                    mylistbox.insert(index,val1)
+                    index += 1
+                    mylistbox.insert(index,val2)
+                    index += 1
+                    mylistbox.insert(index,val3)
+                    index += 1
+                    mylistbox.insert(index,val4)
+                    index += 1
+                    mylistbox.insert(index, " ")
+                    index += 1
 
-        
         def sentmail():
             def sendmail():
                 receml = txt1.get("1.0",END).strip();
@@ -93,6 +155,7 @@ def login():
             root3 = Toplevel(root2)
             root3.title("send email")
             root3.geometry("500x500")
+            root3.resizable(0,0)
             scrlbar = Scrollbar(root3)
             scrlbar.pack(side=RIGHT,fill=Y)
             txt1 = Text(root3, height = 3, width = root3.winfo_screenwidth(),yscrollcommand=scrlbar.set)
@@ -101,7 +164,7 @@ def login():
             txt2.pack()
             txt3 = Text(root3, height = 20, width = root3.winfo_screenwidth(),yscrollcommand=scrlbar.set)
             txt3.pack()
-            txt1.insert(END,"enter receiver's email")
+            txt1.insert(END,"enter receiver email")
             txt2.insert(END,"subject")
             # txt1.insert(END,"")
             Button(root3, text="Send Mail", fg="black", font=("Comic sans ms", 12), 
@@ -111,22 +174,61 @@ def login():
 
             root3.mainloop();
             
+        def deletemail():
+            dells = mylist
+            def deleteselect():
+                mailno = entry21.get().strip();
+                # print(mailno)
+                # print(dells)
+                if (not mailno.isdigit()):
+                    msg.showinfo("error","mail number can only be integer")
+                elif (int(mailno) not in dells):
+                    msg.showinfo("error","the number with this mail number does not exist");
+                else:
+                    global mycursor,mydb;
+                    mycursor.execute(f"delete from inbox where to_eid='{eml}' and mailno = {dells[int(mailno)]}")
+                    mydb.commit();
+                    msg.showinfo("success","mail deleted successfully");
+                    root4.destroy()
+            
+            root4 = Toplevel(root2)
+            root4.title("Delete mails")
+            root4.geometry("200x100")
+            root4.resizable(0, 0)
 
+            # global entry200
+            entry200 = StringVar()
+            entry21 = Entry(root4, textvariable=entry200, font="lucida 10", borderwidth=1, relief=SUNKEN)
+            entry21.pack(pady =5)
+            # entry200.set("enter mail Number to delete")
+
+            Button(root4, text="Delete", fg="black", font=("Comic sans ms", 12), command=deleteselect,
+            borderwidth=1, relief=GROOVE).pack(pady=5,padx=8)
+
+
+            root4.mainloop();
+            
         root2 = Tk()
         root2.title("email system")
-        root2.geometry("494x304")
-        # root.resizable(0,0)
+        root2.geometry("520x520")
+
+        root2.resizable(0,0)
         # root2 = Toplevel(root1)
         # root2.title("login here")
         # root2.geometry("464x254")
         # root2.resizable(0, 0)
         frame1 = Frame(root2)
         frame1.pack(side=LEFT)
-
         frame2 = Frame(root2)
         frame2.pack(side=LEFT)
 
-        Label(frame1,text=f"name:{fnam} {lnam}\nemail:{eml}").pack()
+        # scrolbar = Scrollbar(frame2)
+        # scrolbar.pack(side=RIGHT,fill=Y)
+        Label(frame1,text=f"name:{fnam} {lnam}\nemail:{eml}",fg="blue").pack()
+        # mylistbox1 = Listbox(frame1,width=8)
+        # mylistbox1.pack();
+        # mylistbox1.insert(1,f"name:{fnam} {lnam}")
+        # mylistbox1.insert(2,f"")
         Button(frame1, text="Compose", fg="black", font=("Comic sans ms", 12), command=sentmail,
            borderwidth=1, relief=GROOVE).pack(pady=5,padx=8)
         Button(frame1, text="Inbox", fg="black", font=("Comic sans ms", 12), command=showinbox,
@@ -137,6 +239,10 @@ def login():
            borderwidth=1, relief=GROOVE).pack(pady=5, padx=8)
         Button(frame1, text="All Mails", fg="black", font=("Comic sans ms", 12), command=showallmail,
            borderwidth=1, relief=GROOVE).pack(pady=5,padx=8)
+
+        mylist = {}
+        
+        
         
         global mycursor;
         mycursor.execute(f"select * from inbox where to_eid = '{eml}'");
@@ -146,14 +252,34 @@ def login():
 
         for widgets in frame2.winfo_children():
             widgets.destroy()
+        mylistbox = Listbox(frame2,height=frame2.winfo_screenheight(),width=frame2.winfo_screenwidth())
+        mylistbox.pack();
+        index = 1;
         if (len(ll) == 0):
-            Label(frame2,text="nothing to show up here").pack();
+            mylistbox.insert(index,"  nothing to show up here");
         else:
-            for i in ll:
-                val = f"{i[-1]}. from:{i[0]}\nsubject:{i[3]}\nrecieved at:{i[2]}\n{i[4]}"
-                Label(frame2,text=val).pack();
-        
+            for j in range(len(ll)):
+                i = ll[j]
+                mylist[j+1] = i[-1]
+                val1 = f"{j+1}. from:{i[0]}"
+                val2 = f"  recieved at:{i[2]}"
+                val3 = f"  subject:{i[3]}\n"
+                val4 = f"  content: {i[4]}"
+                mylistbox.insert(index,val1)
+                index += 1
+                mylistbox.insert(index,val2)
+                index += 1
+                mylistbox.insert(index,val3)
+                index += 1
+                mylistbox.insert(index,val4)
+                index += 1
+                mylistbox.insert(index, " ")
+                index += 1
 
+        Button(frame1, text="Delete Mails", fg="black", font=("Comic sans ms", 12), command=deletemail,
+           borderwidth=1, relief=GROOVE).pack(pady=5,padx=8)
+
+        # scrolbar.config(command=Label.yview)
 
         # Label(frame1, text=f"HI {eml} {fnam} {lnam}", font="lucida 10",fg="black").pack(side=LEFT, anchor='n',pady=25)
 
