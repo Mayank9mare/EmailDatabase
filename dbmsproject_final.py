@@ -1,7 +1,10 @@
 # first we create login and register system
 from tkinter import *
+# import os
 import tkinter.messagebox as msg
 import re,random,string,datetime
+# os.system("pip install mysql-connector-python")
+
 import mysql.connector
 
 mydb = mysql.connector.connect(host="localhost",user="root",passwd = "dbms3050sql",database="emaildatabase")
