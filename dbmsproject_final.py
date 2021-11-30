@@ -170,7 +170,7 @@ def login():
             txt2.insert(END,"subject")
             # txt1.insert(END,"")
             Button(root3, text="Send Mail", fg="black", font=("Comic sans ms", 12), 
-            command=sendmail,borderwidth=1, relief=GROOVE).pack(pady=5,padx=8)
+            command=sendmail,borderwidth=2, relief=GROOVE).pack(pady=5,padx=8)
 
             scrlbar.config(command=Text.yview)
 
@@ -200,12 +200,12 @@ def login():
 
             # global entry200
             
-            entry21 = Entry(root4,font="lucida 10", borderwidth=1, relief=SUNKEN)
+            entry21 = Entry(root4,font="lucida 10", borderwidth=2, relief=SUNKEN)
             entry21.pack(pady =5)
             # entry200.set("enter mail Number to delete")
 
             Button(root4, text="Delete", fg="black", font=("Comic sans ms", 12), command=deleteselect,
-            borderwidth=1, relief=GROOVE).pack(pady=5,padx=8)
+            borderwidth=2, relief=GROOVE).pack(pady=5,padx=8)
 
 
             root4.mainloop();
@@ -232,15 +232,15 @@ def login():
         # mylistbox1.insert(1,f"name:{fnam} {lnam}")
         # mylistbox1.insert(2,f"")
         Button(frame1, text="Compose", fg="black", font=("Comic sans ms", 12), command=sentmail,
-           borderwidth=1, relief=GROOVE).pack(pady=5,padx=8)
+           borderwidth=2, relief=GROOVE).pack(pady=5,padx=8)
         Button(frame1, text="Inbox", fg="black", font=("Comic sans ms", 12), command=showinbox,
-           borderwidth=1, relief=GROOVE).pack(pady=5,padx=8)
+           borderwidth=2, relief=GROOVE).pack(pady=5,padx=8)
         Button(frame1, text="Sent Mails", fg="black", font=("Comic sans ms", 12), command=showsent,
-           borderwidth=1, relief=GROOVE).pack(pady=5, padx=8)
+           borderwidth=2, relief=GROOVE).pack(pady=5, padx=8)
         Button(frame1, text="Trash", fg="black", font=("Comic sans ms", 12), command=showtrash,
-           borderwidth=1, relief=GROOVE).pack(pady=5, padx=8)
+           borderwidth=2, relief=GROOVE).pack(pady=5, padx=8)
         Button(frame1, text="All Mails", fg="black", font=("Comic sans ms", 12), command=showallmail,
-           borderwidth=1, relief=GROOVE).pack(pady=5,padx=8)
+           borderwidth=2, relief=GROOVE).pack(pady=5,padx=8)
 
         mylist = {}
         
@@ -279,7 +279,7 @@ def login():
                 index += 1
 
         Button(frame1, text="Delete Mails", fg="black", font=("Comic sans ms", 12), command=deletemail,
-           borderwidth=1, relief=GROOVE).pack(pady=5,padx=8)
+           borderwidth=2, relief=GROOVE).pack(pady=5,padx=8)
 
         # scrolbar.config(command=Label.yview)
 
@@ -325,7 +325,7 @@ def login():
     Label(frame, text="Email ID:", font="lucida 10",fg="black").pack(side=LEFT, anchor='n',pady=25)
     entry10 = StringVar()
 
-    entry1 = Entry(frame, font="lucida 10", borderwidth=1, relief=SUNKEN, textvariable=entry10)
+    entry1 = Entry(frame, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry10)
     # entry1.insert(0,'enter username')
     entry1.pack(side=LEFT, anchor='n', pady=25,padx=25)
 
@@ -335,7 +335,7 @@ def login():
     Label(frame2, text="Password:", font="lucida 10", fg="black").pack(side=LEFT, anchor="n")
     entry20 = StringVar()
 
-    entry2 = Entry(frame2, textvariable=entry20, font="lucida 10", borderwidth=1, relief=SUNKEN)
+    entry2 = Entry(frame2, textvariable=entry20, font="lucida 10", borderwidth=2, relief=SUNKEN)
     entry2.pack(side=LEFT, anchor=N,padx=25)
 
     frame3 = Frame(frame1)
@@ -398,7 +398,7 @@ def signup():
 
     root1 = Toplevel(root)
     root1.title("signup here")
-    root1.geometry("500x500")
+    root1.geometry("500x350")
     root1.resizable(0, 0)
     frame1 = Frame(root1)
     frame1.pack(fill=BOTH)
@@ -406,59 +406,59 @@ def signup():
     frame2 = Frame(frame1)
     frame2.pack()
 
-    Label(frame2, text="First Name:", font="lucida 10", fg="black", justify=LEFT).pack(side=LEFT,anchor='n',pady=20,padx=20)
+    Label(frame2, text="First Name:", font="lucida 10", fg="black", justify=LEFT).grid(row=0,column=0)
     entry110 = StringVar()
-    entry1 = Entry(frame2, font="lucida 10", borderwidth=1, relief=SUNKEN, textvariable=entry110,width=25)
-    entry1.pack(side=LEFT, anchor=N, pady=20,padx=15)
+    entry1 = Entry(frame2, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry110,width=25)
+    entry1.grid(row=0,column=1,pady=5)
 
     frame4 = Frame(frame1)
     frame4.pack()
 
-    Label(frame4, text="Last Name:", font="lucida 10",fg="black", justify=LEFT).pack(side=LEFT,anchor='n',pady=5,padx=2)
+    Label(frame4, text="Last Name:", font="lucida 10",fg="black", justify=LEFT).grid(row=0,column=0)
     entry210 = StringVar()
-    entry2 = Entry(frame4, font="lucida 10", borderwidth=1, relief=SUNKEN, textvariable=entry210,width=25)
-    entry2.pack(side=LEFT, anchor=N, pady=5)
+    entry2 = Entry(frame4, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry210,width=25)
+    entry2.grid(row=0,column=1,pady=5)
 
     frame5 = Frame(frame1)
     frame5.pack()
 
-    Label(frame5, text="email:", font="lucida 10",fg="black",justify=LEFT).pack(side=LEFT,anchor='n', pady=20,padx=5)
+    Label(frame5, text="Email addr: ", font="lucida 10",fg="black",justify=LEFT).grid(row=0,column=0)
     entry310 = StringVar()
-    entry3 = Entry(frame5, font="lucida 10", borderwidth=1, relief=SUNKEN, textvariable=entry310,width=25)
-    entry3.pack(side=LEFT, anchor='n', pady=20)
+    entry3 = Entry(frame5, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry310,width=25)
+    entry3.grid(row=0,column=1,pady=5)
 
     frame6 = Frame(frame1)
     frame6.pack()
 
-    Label(frame6, text="Password:", font="lucida 10",fg="black",justify=LEFT).pack(side=LEFT,anchor="n",padx=6)
+    Label(frame6, text="Password: ", font="lucida 10",fg="black",justify=LEFT).grid(row=0,column=0)
     entry410 = StringVar()
-    entry4 = Entry(frame6, font="lucida 10", borderwidth=1, relief=SUNKEN, textvariable=entry410,width=25)
-    entry4.pack(side=LEFT, anchor=N)
+    entry4 = Entry(frame6, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry410,width=25)
+    entry4.grid(row=0,column=1,pady=5)
 
 
     frame9 = Frame(frame1)
     frame9.pack()
 
-    Label(frame9, text="Phone num:", font="lucida 10",fg="black",justify=LEFT,pady=20).pack(side=LEFT,anchor="n",padx=16)
+    Label(frame9, text="Phone num:", font="lucida 10",fg="black",justify=LEFT).grid(row=0,column=0)
     entry510 = StringVar()
-    entry5 = Entry(frame9, font="lucida 10", borderwidth=1, relief=SUNKEN, textvariable=entry510,width=25)
-    entry5.pack(side=LEFT, anchor=N,pady=20)
+    entry5 = Entry(frame9, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry510,width=25)
+    entry5.grid(row=0,column=1,pady=5)
     
     frame7 = Frame(frame1)
     frame7.pack()
 
-    Label(frame7, text="country:", font="lucida 10",fg="black",justify=LEFT,pady=20).pack(side=LEFT,anchor="n",padx=16)
+    Label(frame7, text="Country:  ", font="lucida 10",fg="black",justify=LEFT).grid(row=0,column=0)
     entry610 = StringVar()
-    entry6 = Entry(frame7, font="lucida 10", borderwidth=1, relief=SUNKEN, textvariable=entry610,width=25)
-    entry6.pack(side=LEFT, anchor=N,pady=20)
+    entry6 = Entry(frame7, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry610,width=25)
+    entry6.grid(row=0,column=1,padx=4,pady=5)
 
     frame8 = Frame(frame1)
     frame8.pack()
 
-    Label(frame8, text="age:", font="lucida 10",fg="black",justify=LEFT,pady=20).pack(side=LEFT,anchor="n",padx=16)
+    Label(frame8, text="Your Age: ", font="lucida 10",fg="black",justify=LEFT).grid(row=0,column=0)
     entry710 = StringVar()
-    entry7 = Entry(frame8, font="lucida 10", borderwidth=1, relief=SUNKEN, textvariable=entry710,width=25)
-    entry7.pack(side=LEFT, anchor=N,pady=20)
+    entry7 = Entry(frame8, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry710,width=25)
+    entry7.grid(row=0,column=1,padx=4,pady=5)
 
     frame3 = Frame(frame1)
     frame3.pack()
@@ -493,6 +493,7 @@ lab1 = Label(frame,text="system by Nirbhay Mayank Kshitiz",font="lucida 15 bold"
 lab1.pack(pady=20)
 
 root.mainloop()
+
 
 
 
