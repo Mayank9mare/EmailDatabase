@@ -25,10 +25,12 @@ def login():
             if (len(ll) == 0):
                 mylistbox.insert(index,"  nothing to show up here");
             else:
-                for i in ll:
-                    val1 = f"{i[-1]}. from:{i[0]}"
-                    val2 = f"  recieved at:{i[2]}"
-                    val3 = f"  subject:{i[3]}\n"
+                for j in range(len(ll)):
+                    i = ll[j]
+                    mylist[j+1] = i[-1]
+                    val1 = f"{j+1}. from: {i[0]}"
+                    val2 = f"  recieved at: {i[2]}"
+                    val3 = f"  subject: {i[3]}\n"
                     val4 = f"  content: {i[4]}"
                     mylistbox.insert(index,val1)
                     index += 1
@@ -56,9 +58,9 @@ def login():
                 mylistbox.insert(index,"  nothing to show up here");
             else:
                 for i in ll:
-                    val1 = f"  to:{i[1]}"
-                    val2 = f"  send at:{i[2]}"
-                    val3 = f"  subject:{i[3]}\n"
+                    val1 = f"  to: {i[1]}"
+                    val2 = f"  send at: {i[2]}"
+                    val3 = f"  subject: {i[3]}\n"
                     val4 = f"  content: {i[4]}"
                     mylistbox.insert(index,val1)
                     index += 1
@@ -87,9 +89,9 @@ def login():
                 mylistbox.insert(index,"  nothing to show up here");
             else:
                 for i in ll:
-                    val1 = f"  from:{i[0]}"
-                    val2 = f"  recieved at:{i[2]}"
-                    val3 = f"  subject:{i[3]}\n"
+                    val1 = f"  from: {i[0]}"
+                    val2 = f"  recieved at: {i[2]}"
+                    val3 = f"  subject: {i[3]}\n"
                     val4 = f"  content: {i[4]}"
                     mylistbox.insert(index,val1)
                     index += 1
@@ -117,9 +119,9 @@ def login():
                 mylistbox.insert(index,"  nothing to show up here");
             else:
                 for i in ll:
-                    val1 = f"  from:{i[0]}"
-                    val2 = f"  recieved at:{i[2]}"
-                    val3 = f"  subject:{i[3]}\n"
+                    val1 = f"  from: {i[0]}"
+                    val2 = f"  recieved at: {i[2]}"
+                    val3 = f"  subject: {i[3]}\n"
                     val4 = f"  content: {i[4]}"
                     mylistbox.insert(index,val1)
                     index += 1
@@ -197,8 +199,8 @@ def login():
             root4.resizable(0, 0)
 
             # global entry200
-            entry200 = StringVar()
-            entry21 = Entry(root4, textvariable=entry200, font="lucida 10", borderwidth=1, relief=SUNKEN)
+            
+            entry21 = Entry(root4,font="lucida 10", borderwidth=1, relief=SUNKEN)
             entry21.pack(pady =5)
             # entry200.set("enter mail Number to delete")
 
@@ -261,9 +263,9 @@ def login():
             for j in range(len(ll)):
                 i = ll[j]
                 mylist[j+1] = i[-1]
-                val1 = f"{j+1}. from:{i[0]}"
-                val2 = f"  recieved at:{i[2]}"
-                val3 = f"  subject:{i[3]}\n"
+                val1 = f"{j+1}. from: {i[0]}"
+                val2 = f"  recieved at: {i[2]}"
+                val3 = f"  subject: {i[3]}\n"
                 val4 = f"  content: {i[4]}"
                 mylistbox.insert(index,val1)
                 index += 1
