@@ -459,7 +459,7 @@ def signup():
     # frame8 = Frame(frame1)
     # frame8.pack()
 
-    Label(frame1, text="Your Age: ", font="lucida 13",fg="black",bg='white',justify=LEFT).grid(padx=(130,0),row=6,column=0)
+    Label(frame1, text="Your Age: ", font="lucida 13",fg="black",bg='white',justify=LEFT).grid(padx=(130,0),pady=(5,30),row=6,column=0)
     entry710 = StringVar()
     entry7 = Entry(frame1, font="lucida 13", borderwidth=2, relief=SUNKEN, textvariable=entry710,width=25)
     entry7.grid(row=6,column=1,pady=(5,30))
