@@ -157,7 +157,7 @@ def login():
                     msg.showinfo("sent successful","email send successfully")
 
             # global root2
-            root3 = Toplevel(root2)
+            root3 = Toplevel(root2,bg='white')
             root3.title("send email")
             root3.geometry("500x500")
             root3.resizable(0,0)
@@ -172,8 +172,8 @@ def login():
             txt1.insert(END,"enter receiver email")
             txt2.insert(END,"subject")
             # txt1.insert(END,"")
-            Button(root3, text="Send Mail", fg="black", font=("Comic sans ms", 12), 
-            command=sendmail,borderwidth=2, relief=GROOVE).pack(pady=5,padx=8)
+            Button(root3, text="Send Mail", fg="white",bg='#4285F4', font=("Comic sans ms", 12), 
+            command=sendmail,borderwidth=2, relief=RAISED).pack(pady=5,padx=8)
 
             scrlbar.config(command=Text.yview)
 
@@ -196,19 +196,19 @@ def login():
                     msg.showinfo("success","mail deleted successfully");
                     root4.destroy()
             
-            root4 = Toplevel(root2)
+            root4 = Toplevel(root2,bg='white')
             root4.title("Delete mails")
-            root4.geometry("200x100")
+            root4.geometry("310x130")
             root4.resizable(0, 0)
 
             # global entry200
-            
-            entry21 = Entry(root4,font="lucida 10", borderwidth=2, relief=SUNKEN)
-            entry21.pack(pady =5)
+            Label(root4,text="Mail Num:",bg='white',font='lucida 12').grid(row=0,column=0,pady=(10,10))            
+            entry21 = Entry(root4,font="lucida 12", borderwidth=2, relief=SUNKEN)
+            entry21.grid(row=0,column=1,pady=(10,10))
             # entry200.set("enter mail Number to delete")
 
-            Button(root4, text="Delete", fg="black", font=("Comic sans ms", 12), command=deleteselect,
-            borderwidth=2, relief=GROOVE).pack(pady=5,padx=8)
+            Button(root4, text="Delete", fg="white",bg='#4285F4', font=("Comic sans ms", 12), command=deleteselect,
+            borderwidth=2, relief=RAISED).grid(row=1,column=0,columnspan=1,padx=20)
 
 
             root4.mainloop();
@@ -227,23 +227,23 @@ def login():
         frame2 = Frame(root2)
         frame2.pack(side=LEFT)
 
-        # scrolbar = Scrollbar(frame2)
-        # scrolbar.pack(side=RIGHT,fill=Y)
+        # scrolbar = Scrollbar(frame2,orient=HORIZONTAL)
+        # scrolbar.pack(side=BOTTOM,fill=X)
         Label(frame1,text=f"name:{fnam} {lnam}\nemail:{eml}",fg="blue").pack()
         # mylistbox1 = Listbox(frame1,width=8)
         # mylistbox1.pack();
         # mylistbox1.insert(1,f"name:{fnam} {lnam}")
         # mylistbox1.insert(2,f"")
-        Button(frame1, text="Compose", fg="black", font=("Comic sans ms", 12), command=sentmail,
-           borderwidth=2, relief=GROOVE).pack(pady=5,padx=8)
-        Button(frame1, text="Inbox", fg="black", font=("Comic sans ms", 12), command=showinbox,
-           borderwidth=2, relief=GROOVE).pack(pady=5,padx=8)
-        Button(frame1, text="Sent Mails", fg="black", font=("Comic sans ms", 12), command=showsent,
-           borderwidth=2, relief=GROOVE).pack(pady=5, padx=8)
-        Button(frame1, text="Trash", fg="black", font=("Comic sans ms", 12), command=showtrash,
-           borderwidth=2, relief=GROOVE).pack(pady=5, padx=8)
-        Button(frame1, text="All Mails", fg="black", font=("Comic sans ms", 12), command=showallmail,
-           borderwidth=2, relief=GROOVE).pack(pady=5,padx=8)
+        Button(frame1, text="Compose", bg="white",fg='#4285F4', font=("Comic sans ms", 12), command=sentmail,
+           borderwidth=2, relief=RAISED).pack(pady=5,padx=8)
+        Button(frame1, text="Inbox", bg="white",fg='#4285F4', font=("Comic sans ms", 12), command=showinbox,
+           borderwidth=2, relief=RAISED).pack(pady=5,padx=8)
+        Button(frame1, text="Sent Mails", bg="white",fg='#4285F4', font=("Comic sans ms", 12), command=showsent,
+           borderwidth=2, relief=RAISED).pack(pady=5, padx=8)
+        Button(frame1, text="Trash", bg="white",fg='#4285F4', font=("Comic sans ms", 12), command=showtrash,
+           borderwidth=2, relief=RAISED).pack(pady=5, padx=8)
+        Button(frame1, text="All Mails", bg="white",fg='#4285F4', font=("Comic sans ms", 12), command=showallmail,
+           borderwidth=2, relief=RAISED).pack(pady=5,padx=8)
 
         mylist = {}
         
@@ -259,6 +259,7 @@ def login():
             widgets.destroy()
         mylistbox = Listbox(frame2,height=frame2.winfo_screenheight(),width=frame2.winfo_screenwidth())
         mylistbox.pack();
+        # scrolbar.config(command=mylistbox.xview)
         index = 1;
         if (len(ll) == 0):
             mylistbox.insert(index,"  nothing to show up here");
@@ -281,8 +282,8 @@ def login():
                 mylistbox.insert(index, " ")
                 index += 1
 
-        Button(frame1, text="Delete Mails", fg="black", font=("Comic sans ms", 12), command=deletemail,
-           borderwidth=2, relief=GROOVE).pack(pady=5,padx=8)
+        Button(frame1, text="Delete Mails", fg="white",bg='#4285F4', font=("Comic sans ms", 12), command=deletemail,
+           borderwidth=2, relief=RAISED).pack(pady=5,padx=8)
 
         # scrolbar.config(command=Label.yview)
 
@@ -315,41 +316,41 @@ def login():
         entry20.set("")
         # entry30.set("")
 
-    root1 = Toplevel(root)
+    root1 = Toplevel(root,bg='white')
     root1.title("login here")
-    root1.geometry("464x254")
+    root1.geometry("500x254")
     root1.resizable(0, 0)
-    frame1 = Frame(root1)
+    frame1 = Frame(root1,bg='white')
     frame1.pack(fill=BOTH)
 
-    frame = Frame(frame1)
-    frame.pack()
+    # frame = Frame(frame1)
+    # frame.pack()
 
-    Label(frame, text="Email ID:", font="lucida 10",fg="black").pack(side=LEFT, anchor='n',pady=25)
+    Label(frame1, text="Email ID:", font="lucida 14",fg="black",bg='white').grid(row=0,column=0,padx=(70,0),pady=(12,10))
     entry10 = StringVar()
 
-    entry1 = Entry(frame, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry10)
+    entry1 = Entry(frame1, font="lucida 14", borderwidth=2, relief=SUNKEN, textvariable=entry10)
     # entry1.insert(0,'enter username')
-    entry1.pack(side=LEFT, anchor='n', pady=25,padx=25)
+    entry1.grid(row=0,column=1)
 
-    frame2 = Frame(frame1)
-    frame2.pack()
+    # frame2 = Frame(frame1)
+    # frame2.pack()
 
-    Label(frame2, text="Password:", font="lucida 10", fg="black").pack(side=LEFT, anchor="n")
+    Label(frame1, text="Password:", font="lucida 14", fg="black",bg='white').grid(padx= (70,0),row=1,column=0)
     entry20 = StringVar()
 
-    entry2 = Entry(frame2, textvariable=entry20, font="lucida 10", borderwidth=2, relief=SUNKEN)
-    entry2.pack(side=LEFT, anchor=N,padx=25)
+    entry2 = Entry(frame1, textvariable=entry20, font="lucida 14", borderwidth=2, relief=SUNKEN)
+    entry2.grid(row=1,column=1)
 
-    frame3 = Frame(frame1)
-    frame3.pack()
+    # frame3 = Frame(frame1)
+    # frame3.pack()
 
-    Button(frame3, text="Login", fg="black", font=("Comic sans ms", 12), command=letmein,
-           borderwidth=1, relief=GROOVE).pack(pady=25, side=LEFT, padx=8)
-    Button(frame3, text="Reset",fg="black", font=("Comic sans ms", 12), command=resetkardo,
-           borderwidth=1, relief=GROOVE).pack(pady=25, side=LEFT, padx=8)
-    Button(frame3, text="Exit", fg="black", font=("Comic sans ms", 12), borderwidth=1,
-           relief=GROOVE, command=root1.destroy).pack(pady=25, side=LEFT, padx=8)
+    Button(frame1, text="Login", fg="white",bg='#4285F4', font=("Comic sans ms", 14), command=letmein,
+           borderwidth=1, relief=RAISED).grid(padx=(80,0),pady=(30,0),row=2,column=0)
+    Button(frame1, text="Reset",fg="white",bg='#4285F4', font=("Comic sans ms", 14), command=resetkardo,
+           borderwidth=1, relief=RAISED).grid(pady=(30,0),row=2,column=1)
+    Button(frame1, text="Exit", fg="white",bg='#4285F4', font=("Comic sans ms", 14), borderwidth=1,
+           relief=RAISED, command=root1.destroy).grid(pady=(30,0),row=2,column=2)
     
     root1.mainloop()
 
@@ -399,104 +400,103 @@ def signup():
         entry610.set("")
         entry710.set("")
 
-    root1 = Toplevel(root)
+    root1 = Toplevel(root,bg='white')
     root1.title("signup here")
-    root1.geometry("500x350")
+    root1.geometry("570x380")
     root1.resizable(0, 0)
-    frame1 = Frame(root1)
+    frame1 = Frame(root1,bg='white')
     frame1.pack(fill=BOTH)
 
-    frame2 = Frame(frame1)
-    frame2.pack()
+    # frame2 = Frame(frame1)
+    # frame2.pack()
 
-    Label(frame2, text="First Name:", font="lucida 10", fg="black", justify=LEFT).grid(row=0,column=0)
+    Label(frame1, text="First Name:", font="lucida 13", fg="black",bg='white', justify=LEFT).grid(padx=(130,0),row=0,column=0,pady=(40,0))
     entry110 = StringVar()
-    entry1 = Entry(frame2, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry110,width=25)
-    entry1.grid(row=0,column=1,pady=5)
+    entry1 = Entry(frame1, font="lucida 13", borderwidth=2, relief=SUNKEN, textvariable=entry110,width=25)
+    entry1.grid(row=0,column=1,pady=(40,5))
 
-    frame4 = Frame(frame1)
-    frame4.pack()
+    # frame4 = Frame(frame1)
+    # frame4.pack()
 
-    Label(frame4, text="Last Name:", font="lucida 10",fg="black", justify=LEFT).grid(row=0,column=0)
+    Label(frame1, text="Last Name:", font="lucida 13",fg="black",bg='white', justify=LEFT).grid(padx=(130,0),row=1,column=0)
     entry210 = StringVar()
-    entry2 = Entry(frame4, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry210,width=25)
-    entry2.grid(row=0,column=1,pady=5)
+    entry2 = Entry(frame1, font="lucida 13", borderwidth=2, relief=SUNKEN, textvariable=entry210,width=25)
+    entry2.grid(row=1,column=1,pady=5)
 
-    frame5 = Frame(frame1)
-    frame5.pack()
+    # frame5 = Frame(frame1)
+    # frame5.pack()
 
-    Label(frame5, text="Email addr: ", font="lucida 10",fg="black",justify=LEFT).grid(row=0,column=0)
+    Label(frame1, text="Email addr: ", font="lucida 13",fg="black",bg='white',justify=LEFT).grid(padx=(130,0),row=2,column=0)
     entry310 = StringVar()
-    entry3 = Entry(frame5, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry310,width=25)
-    entry3.grid(row=0,column=1,pady=5)
+    entry3 = Entry(frame1, font="lucida 13", borderwidth=2, relief=SUNKEN, textvariable=entry310,width=25)
+    entry3.grid(row=2,column=1,pady=5)
 
-    frame6 = Frame(frame1)
-    frame6.pack()
+    # frame6 = Frame(frame1)
+    # frame6.pack()
 
-    Label(frame6, text="Password: ", font="lucida 10",fg="black",justify=LEFT).grid(row=0,column=0)
+    Label(frame1, text="Password: ", font="lucida 13",fg="black",bg='white',justify=LEFT).grid(padx=(130,0),row=3,column=0)
     entry410 = StringVar()
-    entry4 = Entry(frame6, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry410,width=25)
-    entry4.grid(row=0,column=1,pady=5)
+    entry4 = Entry(frame1, font="lucida 13", borderwidth=2, relief=SUNKEN, textvariable=entry410,width=25)
+    entry4.grid(row=3,column=1,pady=5)
 
 
-    frame9 = Frame(frame1)
-    frame9.pack()
+    # frame9 = Frame(frame1)
+    # frame9.pack()
 
-    Label(frame9, text="Phone num:", font="lucida 10",fg="black",justify=LEFT).grid(row=0,column=0)
+    Label(frame1, text="Phone num:", font="lucida 13",fg="black",bg='white',justify=LEFT).grid(padx=(130,0),row=4,column=0)
     entry510 = StringVar()
-    entry5 = Entry(frame9, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry510,width=25)
-    entry5.grid(row=0,column=1,pady=5)
+    entry5 = Entry(frame1, font="lucida 13", borderwidth=2, relief=SUNKEN, textvariable=entry510,width=25)
+    entry5.grid(row=4,column=1,pady=5)
     
-    frame7 = Frame(frame1)
-    frame7.pack()
+    # frame7 = Frame(frame1)
+    # frame7.pack()
 
-    Label(frame7, text="Country:  ", font="lucida 10",fg="black",justify=LEFT).grid(row=0,column=0)
+    Label(frame1, text="Country:  ", font="lucida 13",fg="black",bg='white',justify=LEFT).grid(padx=(130,0),row=5,column=0)
     entry610 = StringVar()
-    entry6 = Entry(frame7, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry610,width=25)
-    entry6.grid(row=0,column=1,padx=4,pady=5)
+    entry6 = Entry(frame1, font="lucida 13", borderwidth=2, relief=SUNKEN, textvariable=entry610,width=25)
+    entry6.grid(row=5,column=1,pady=5)
 
-    frame8 = Frame(frame1)
-    frame8.pack()
+    # frame8 = Frame(frame1)
+    # frame8.pack()
 
-    Label(frame8, text="Your Age: ", font="lucida 10",fg="black",justify=LEFT).grid(row=0,column=0)
+    Label(frame1, text="Your Age: ", font="lucida 13",fg="black",bg='white',justify=LEFT).grid(padx=(130,0),row=6,column=0)
     entry710 = StringVar()
-    entry7 = Entry(frame8, font="lucida 10", borderwidth=2, relief=SUNKEN, textvariable=entry710,width=25)
-    entry7.grid(row=0,column=1,padx=4,pady=5)
+    entry7 = Entry(frame1, font="lucida 13", borderwidth=2, relief=SUNKEN, textvariable=entry710,width=25)
+    entry7.grid(row=6,column=1,pady=(5,30))
 
-    frame3 = Frame(frame1)
-    frame3.pack()
+    # frame3 = Frame(frame1)
+    # frame3.pack()
 
-    Button(frame3, text="Signup",fg="black", font=("Comic sans ms", 12), command=signupkaro,
-           borderwidth=1, relief=GROOVE).pack(pady=25, side=LEFT, padx=8)
-    Button(frame3, text="Reset",fg="black", font=("Comic sans ms", 12), command=resetall,
-           borderwidth=1, relief=GROOVE).pack(pady=25, side=LEFT, padx=8)
-    Button(frame3, text="EXIT",fg="black", font=("Comic sans ms", 12), borderwidth=1,
-           relief=GROOVE, command=root1.destroy).pack(pady=25, side=LEFT, padx=8)
+    Button(frame1, text="Signup",fg="white",bg='#4285F4', font=("Comic sans ms", 14), command=signupkaro,
+           borderwidth=1, relief=RAISED).grid(padx=(100,0),row=7,column=0)
+    Button(frame1, text="Reset",fg="white",bg='#4285F4', font=("Comic sans ms", 14), command=resetall,
+           borderwidth=1, relief=RAISED).grid(row=7,column=1)
+    Button(frame1, text="EXIT",fg="white", bg='#4285F4',font=("Comic sans ms", 14), borderwidth=1,
+           relief=RAISED, command=root1.destroy).grid(row=7,column=2)
     root1.mainloop()
 
 
 root = Tk()
 root.title("login and register system")
-root.geometry("494x304")
+root.geometry("500x350")
 root.resizable(0,0)
 
-frame = Frame(root,borderwidth=2,relief=GROOVE)
+frame = Frame(root,borderwidth=2,relief=RAISED,bg='white')
 frame.pack(fill=BOTH)
 
-lab = Label(frame,text="welcome to the email services\nlogin if you already have an account else register",font="lucida 15 bold",fg="red")
+lab = Label(frame,text="Welcome to the email services\nlogin if you already have an account else register",bg='white',font="lucida 15 bold",fg="#4285F4")
 lab.pack(pady=20)
 
-b1 = Button(frame,text="LOGIN",fg="black",pady=10,padx=10,font=("Ubuntu Mono", 12, "bold"),relief=RIDGE,command=login)
+b1 = Button(frame,text="LOGIN",fg="#4285F4",bg='white',pady=10,padx=10,font=("Hack", 14, "bold"),command=login)
 b1.pack(pady=10)
 
-b2 = Button(frame,text="REGISTER",fg="black",pady=10,padx=10,font=("Ubuntu Mono" ,12, "bold"),command=signup)
+b2 = Button(frame,text="REGISTER",fg="white",bg='#4285F4',pady=10,padx=10,font=("Hack" ,14, "bold"),command=signup)
 b2.pack(pady=10)
 
-lab1 = Label(frame,text="system by Nirbhay Mayank Kshitiz",font="lucida 15 bold",fg="green")
+lab1 = Label(frame,text="System by Nirbhay Mayank Kshitiz",font="lucida 15 bold",fg="green",bg='white')
 lab1.pack(pady=20)
 
 root.mainloop()
-
 
 
 
